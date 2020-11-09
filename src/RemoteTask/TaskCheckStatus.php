@@ -4,26 +4,26 @@ namespace Liman\Toolkit\RemoteTask;
 class TaskCheckStatus
 {
 	/**
-     * Status 
-     *
-     * @var TaskCheckStatusEnum
-     */
+	 * Status
+	 *
+	 * @var TaskCheckStatusEnum
+	 */
 	public $status;
 
 	/**
-     * Output 
-     *
-     * @var string
-     */
+	 * Output
+	 *
+	 * @var string
+	 */
 	public $output;
 
 	/**
-     * Initialize class.
-     *
-     * @param  string  $status
-     * @param  string  $output
-     * @return void
-     */
+	 * Initialize class.
+	 *
+	 * @param  string  $status
+	 * @param  string  $output
+	 * @return void
+	 */
 	public function __construct(string $status, string $output)
 	{
 		$this->status = $status;
@@ -31,20 +31,20 @@ class TaskCheckStatus
 	}
 
 	/**
-     * Get status 
-     *
-     * @var TaskCheckStatusEnum
-     */
+	 * Get status
+	 *
+	 * @var TaskCheckStatusEnum
+	 */
 	public function getStatus()
 	{
 		return $this->status;
 	}
 
 	/**
-     * Get output 
-     *
-     * @var string
-     */
+	 * Get output
+	 *
+	 * @var string
+	 */
 	public function getOutput()
 	{
 		return $this->output;

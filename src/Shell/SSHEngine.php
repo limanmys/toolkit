@@ -7,41 +7,41 @@ use Exception;
 class SSHEngine implements ICommandEngine
 {
 	/**
-     * Remote machine's hostname.
-     *
-     * @var string
-     */
+	 * Remote machine's hostname.
+	 *
+	 * @var string
+	 */
 	private static $hostname;
 
 	/**
-     * Remote machine's username.
-     *
-     * @var string
-     */
+	 * Remote machine's username.
+	 *
+	 * @var string
+	 */
 	private static $username;
-	
+
 	/**
-     * Remote machine's password.
-     *
-     * @var string
-     */
+	 * Remote machine's password.
+	 *
+	 * @var string
+	 */
 	private static $password;
-	
+
 	/**
-     * Class initialize identifier.
-     *
-     * @var bool
-     */
+	 * Class initialize identifier.
+	 *
+	 * @var bool
+	 */
 	private static $initialized = false;
 
 	/**
-     * Init engine to connect host.
-     *
-     * @param  string  $hostname
-     * @param  string  $username
-     * @param  string  $password
-     * @return void
-     */
+	 * Init engine to connect host.
+	 *
+	 * @param  string  $hostname
+	 * @param  string  $username
+	 * @param  string  $password
+	 * @return void
+	 */
 	public static function init($hostname, $username, $password)
 	{
 		self::$hostname = $hostname;
@@ -51,11 +51,11 @@ class SSHEngine implements ICommandEngine
 	}
 
 	/**
-     * Run command.
-     *
-     * @param  string  $command
-     * @return string
-     */
+	 * Run command.
+	 *
+	 * @param  string  $command
+	 * @return string
+	 */
 	public static function run($command)
 	{
 		if (!self::$initialized) {
@@ -63,7 +63,7 @@ class SSHEngine implements ICommandEngine
 				'The SSHEngine class must ve initialized with init() function.'
 			);
 		}
-        return executeOutsideCommand(
+		return executeOutsideCommand(
 			'ssh',
 			self::$username,
 			self::$password,
@@ -74,10 +74,10 @@ class SSHEngine implements ICommandEngine
 	}
 
 	/**
-     * Manipulated sudo command to passing password to sudo binary.
-     *
-     * @return string
-     */
+	 * Manipulated sudo command to passing password to sudo binary.
+	 *
+	 * @return string
+	 */
 	public static function sudo()
 	{
 		return Formatter::run(

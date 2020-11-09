@@ -7,18 +7,17 @@ use ReflectionClass;
 
 class TaskManager
 {
-
 	/**
-     * Get specific task
-     *
-     * @return Task
-     */
+	 * Get specific task
+	 *
+	 * @return Task
+	 */
 	public static function get(string $taskName, array $attributes = [])
 	{
 		$task = Formatter::run('App\\Tasks\\{:taskName}', [
 			'taskName' => $taskName
 		]);
-		if(!class_exists($task)){
+		if (!class_exists($task)) {
 			$task = $taskName;
 		}
 		$class = new ReflectionClass($task);

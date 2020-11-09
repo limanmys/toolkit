@@ -7,76 +7,76 @@ use Dotenv\Dotenv;
 class DistroInfo
 {
 	/**
-     * Distro id
-     *
-     * @var string
-     */
+	 * Distro id
+	 *
+	 * @var string
+	 */
 	public $distroID;
-     
-     /**
-     * Version id
-     *
-     * @var string
-     */
+
+	/**
+	 * Version id
+	 *
+	 * @var string
+	 */
 	public $versionID;
-     
-     /**
-     * Base os
-     *
-     * @var string
-     */
+
+	/**
+	 * Base os
+	 *
+	 * @var string
+	 */
 	public $base;
-     
-     /**
-     * Pretty name
-     *
-     * @var string
-     */
+
+	/**
+	 * Pretty name
+	 *
+	 * @var string
+	 */
 	public $pretty;
-     
-     /**
-     * Major version
-     *
-     * @var string
-     */
+
+	/**
+	 * Major version
+	 *
+	 * @var string
+	 */
 	public $majorVersion;
-     
-     /**
-     * Minor version
-     *
-     * @var string
-     */
+
+	/**
+	 * Minor version
+	 *
+	 * @var string
+	 */
 	public $minorVersion;
-     
-     /**
-     * Slug
-     *
-     * @var string
-     */
+
+	/**
+	 * Slug
+	 *
+	 * @var string
+	 */
 	public $slug;
-     
-     /**
-     * Major Slug
-     *
-     * @var string
-     */
+
+	/**
+	 * Major Slug
+	 *
+	 * @var string
+	 */
 	public $majorSlug;
 
 	/**
-     * Call parseEnv function when it's initialized.
-     *
-     * @return void
-     */
+	 * Call parseEnv function when it's initialized.
+	 *
+	 * @return void
+	 */
 	public function __construct()
 	{
 		$this->parseEnv();
 	}
 
 	/**
-     * Read and parse os-release file.
-     *
-     * @return void
-     */
+	 * Read and parse os-release file.
+	 *
+	 * @return void
+	 */
 	private function parseEnv()
 	{
 		$release = Command::run('cat /etc/os-release | grep =');
@@ -90,10 +90,10 @@ class DistroInfo
 	}
 
 	/**
-     * Parse os version.
-     *
-     * @return void
-     */
+	 * Parse os version.
+	 *
+	 * @return void
+	 */
 	private function parseVersion()
 	{
 		$version = explode('.', $this->versionID);
@@ -102,10 +102,10 @@ class DistroInfo
 	}
 
 	/**
-     * Parse os slug.
-     *
-     * @return void
-     */
+	 * Parse os slug.
+	 *
+	 * @return void
+	 */
 	private function parseSlug()
 	{
 		$this->slug =

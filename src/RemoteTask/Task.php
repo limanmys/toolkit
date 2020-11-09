@@ -7,59 +7,59 @@ use Liman\Toolkit\Shell\Command;
 abstract class Task
 {
 	/**
-     * Task description 
-     *
-     * @var bool
-     */
+	 * Task description
+	 *
+	 * @var bool
+	 */
 	protected $description;
 
 	/**
-     * Command to run on background 
-     *
-     * @var bool
-     */
+	 * Command to run on background
+	 *
+	 * @var bool
+	 */
 	protected $command;
 
 	/**
-     * Addition command to check if process success or not 
-     *
-     * @var bool
-     */
+	 * Addition command to check if process success or not
+	 *
+	 * @var bool
+	 */
 	protected $checkCommand = null;
 
 	/**
-     * Is sudo required? 
-     *
-     * @var bool
-     */
+	 * Is sudo required?
+	 *
+	 * @var bool
+	 */
 	protected $sudoRequired = false;
 
 	/**
-     * Remote log file path 
-     *
-     * @var string
-     */
+	 * Remote log file path
+	 *
+	 * @var string
+	 */
 	protected $logFile;
 
 	/**
-     * Ps aux grep pattern to control process 
-     *
-     * @var string
-     */
+	 * Ps aux grep pattern to control process
+	 *
+	 * @var string
+	 */
 	protected $control;
 
 	/**
-     * Command attributes
-     *
-     * @var array
-     */
+	 * Command attributes
+	 *
+	 * @var array
+	 */
 	protected $attributes = [];
 
 	/**
-     * Run the command on background
-     *
-     * @return TaskRunStatus
-     */
+	 * Run the command on background
+	 *
+	 * @return TaskRunStatus
+	 */
 	public function run()
 	{
 		$this->before();
@@ -95,10 +95,10 @@ abstract class Task
 	}
 
 	/**
-     * Check first command status
-     *
-     * @return TaskCheckStatus
-     */
+	 * Check first command status
+	 *
+	 * @return TaskCheckStatus
+	 */
 	public function checkFirst()
 	{
 		$status = (bool) $this->command(
@@ -112,10 +112,10 @@ abstract class Task
 	}
 
 	/**
-     * Check command status
-     *
-     * @return TaskCheckStatus
-     */
+	 * Check command status
+	 *
+	 * @return TaskCheckStatus
+	 */
 	public function check()
 	{
 		$status = (bool) $this->command(
@@ -148,10 +148,10 @@ abstract class Task
 	}
 
 	/**
-     * Command helper
-     *
-     * @return string
-     */
+	 * Command helper
+	 *
+	 * @return string
+	 */
 	private function command(string $command, array $attributes = [])
 	{
 		if ($this->sudoRequired) {
@@ -161,19 +161,19 @@ abstract class Task
 	}
 
 	/**
-     * Before
-     *
-     * @return void
-     */
+	 * Before
+	 *
+	 * @return void
+	 */
 	protected function before()
 	{
 	}
 
 	/**
-     * After
-     *
-     * @return void
-     */
+	 * After
+	 *
+	 * @return void
+	 */
 	protected function after()
 	{
 	}
